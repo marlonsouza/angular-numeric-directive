@@ -3,8 +3,8 @@
 
     /* global angular */
     angular
-        .module('educacao.common')
-        .directive('edNumeric', numeric);
+        .module('souza.directives')
+        .directive('mhsNumeric', numeric);
 
     numeric.$inject = ['$locale'];
 
