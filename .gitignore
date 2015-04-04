@@ -44,3 +44,7 @@ Temporary Items
 
 test/coverage/
 src/*.html
+bower_components
+node_modules/
+nohup.out
+npm-debug.log
