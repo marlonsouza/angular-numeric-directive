@@ -1,20 +1,10 @@
-/**
- * Numeric directive.
- * Version: 0.9.8
- * 
- * Numeric only input. Limits input to:
- * - max value: maximum input value. Default undefined (no max).
- * - min value: minimum input value. Default undefined (no min).
- * - decimals: number of decimals. Default 2.
- * - formatting: apply thousand separator formatting. Default true.
- */
 (function () {
     'use strict';
 
     /* global angular */
     angular
-        .module('purplefox.numeric', [])
-        .directive('numeric', numeric);
+        .module('educacao.common')
+        .directive('edNumeric', numeric);
 
     numeric.$inject = ['$locale'];
 
@@ -53,13 +43,16 @@
             ngModelCtrl.$formatters.push(formatViewValue);
 
             el.bind('blur', onBlur);        // Event handler for the leave event.
-            el.bind('focus', onFocus);      // Event handler for the focus event.
 
             // Put a watch on the min, max and decimal value changes in the attribute.
             scope.$watch(attrs.min, onMinChanged);
             scope.$watch(attrs.max, onMaxChanged);
             scope.$watch(attrs.decimals, onDecimalsChanged);
             scope.$watch(attrs.formatting, onFormattingChanged);
+
+             scope.$watch(attrs.ngModel, function () {
+                    ngModelCtrl.$render();
+                }, true);
 
             // Setup decimal formatting.
             if (decimals > -1) {
@@ -261,23 +254,13 @@
                 var value = ngModelCtrl.$modelValue;
                 if (!angular.isUndefined(value)) {
                     // Format the model value.
-                    ngModelCtrl.$viewValue = formatPrecision(value);
+                    ngModelCtrl.$viewValue = value >max ? formatPrecision(max) :
+                                                value<min? formatPrecision(min) :
+                                                formatPrecision(value);
                     ngModelCtrl.$render();
                 }
             }
 
-            
-            /**
-             * Function for handeling the focus (enter) event on the control.
-             * On focus show the value without the group separators.
-             */
-            function onFocus() {
-                var value = ngModelCtrl.$modelValue;
-                if (!angular.isUndefined(value)) {
-                    ngModelCtrl.$viewValue = value.toString().replace(".", decimalSeparator);
-                    ngModelCtrl.$render();
-                }
-            }
         }
     }
 
