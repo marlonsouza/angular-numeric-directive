@@ -3,8 +3,8 @@
 
     /* global angular */
     angular
-        .module('souza.directives')
-        .directive('mhsNumeric', numeric);
+        .module('purplefox.numeric')
+        .directive('ngNumeric', numeric);
 
     numeric.$inject = ['$locale'];
 
