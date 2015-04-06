@@ -55,20 +55,10 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/karma start test/numeric.conf.js --single-run --browsers PhantomJS"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/epeschier/angular-numeric-directive"
+    "test": "gulp test"
   },
   "keywords": [
     "angular",
     "numeric"
-  ],
-  "author": "Marlon Souza",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/marlonsouza/angular-numeric-directive/issues"
-  },
-  "homepage": "https://github.com/marlonsouza/angular-numeric-directive"
+  ]
 }
