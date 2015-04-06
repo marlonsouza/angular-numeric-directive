@@ -3,7 +3,7 @@
 
     /* global angular */
     angular
-        .module('purplefox.numeric')
+        .module('purplefox.numeric', [])
         .directive('ngNumeric', numeric);
 
     numeric.$inject = ['$locale'];

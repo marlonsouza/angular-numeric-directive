@@ -6,7 +6,7 @@ var _ = require('lodash');
 var wrench = require('wrench');
 
 var options = {
-  src: 'src/example',
+  src: 'src',
   dist: 'dist',
   tmp: '.tmp',
   e2e: 'e2e',

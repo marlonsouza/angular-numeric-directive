@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="NumericExample">
+  <head>
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+    <!-- Numeric directive -->
+    <script src="./numeric-directive.js"></script>
+
+    <!-- Example app -->
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="NumericCtrl as vm">
+    <div>
+      <input ng-numeric ng-model="vm.value" min="10" max="40" decimals="3" />
+      <p>Model value: {{vm.value}}</p>
+      <p>Tab out of input to see the changes.</p>
+    </div>
+  </body>
+</html>
